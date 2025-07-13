@@ -7,5 +7,7 @@
       pip install -r requirements.txt
     startCommand: python ai_forex_trading_bot.py
     envVars:
+      - key: PORT
+        value: 10000
       - key: PYTHON_VERSION
         value: 3.9.13
