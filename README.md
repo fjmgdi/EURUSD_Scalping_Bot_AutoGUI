@@ -1,1 +1,0 @@
-# EURUSD_Scalping_Bot_AutoGUI
