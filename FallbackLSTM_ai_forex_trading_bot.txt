@@ -1,0 +1,216 @@
+import numpy as np
+import pandas as pd
+import logging
+from datetime import datetime
+from ta.momentum import RSIIndicator, StochasticOscillator
+from ta.trend import MACD, EMAIndicator, ADXIndicator
+from ta.volatility import BollingerBands, AverageTrueRange
+from ta.volume import VolumeWeightedAveragePrice
+from lightgbm import LGBMClassifier
+
+model = Pipeline([
+    ('scaler', StandardScaler()),
+    ('lgbm', LGBMClassifier(
+        n_estimators=1000, 
+        max_depth=5,
+        learning_rate=0.01
+        subsample=0.8,
+        metric='binary_logloss'
+    ))
+    
+import joblib
+
+logger = logging.getLogger(__name__)
+])
+class AITradingStrategy:
+    def __init__(self, symbol="EUR_USD", model_path=None):
+        self.symbol = symbol
+        self.current_position = None
+        self.model = None
+        self.indicators = {}
+        self.daily_loss_limit = 0.02
+        self.max_drawdown = 0.05
+        self._initialize_indicators()
+        
+        if model_path and os.path.exists(model_path):
+            self._load_model(model_path)
+        else:
+            self._train_model()
+            if model_path:
+                self._save_model(model_path)
+
+    def _initialize_indicators(self):
+        self.indicators = {}
+
+    def _prepare_training_data(self, df=None):
+        try:
+            if df is None:
+                np.random.seed(42)
+                X = np.random.rand(1000, 10)
+                y = np.random.randint(0, 2, 1000)
+                return X, y
+            
+            self.calculate_indicators(df)
+            features, targets = [], []
+
+            for i in range(20, len(df)-1):
+                feature_vector = [
+                    self.indicators['rsi'].iloc[i],
+                    self.indicators['macd'].iloc[i],
+                    self.indicators['stoch_k'].iloc[i],
+                    self.indicators['stoch_d'].iloc[i],
+                    self.indicators['adx'].iloc[i],
+                    self.indicators['atr'].iloc[i],
+                    self.indicators['vwap'].iloc[i],
+                    self.indicators['bollinger_upper'].iloc[i] - df['close'].iloc[i],
+                    df['close'].iloc[i] - self.indicators['bollinger_lower'].iloc[i],
+                    self.indicators['ema_50'].iloc[i] - self.indicators['ema_200'].iloc[i],
+                ]
+                target = 1 if df['close'].iloc[i+1] > df['close'].iloc[i] else 0
+                features.append(feature_vector)
+                targets.append(target)
+            return np.array(features), np.array(targets)
+        except Exception as e:
+            logger.error(f"Error preparing training data: {str(e)}")
+            np.random.seed(42)
+            X = np.random.rand(1000, 10)
+            y = np.random.randint(0, 2, 1000)
+            return X, y
+
+    def _train_model(self):
+        try:
+            X, y = self._prepare_training_data()
+            split = int(len(X) * 0.8)
+            X_train, X_val = X[:split], X[split:]
+            y_train, y_val = y[:split], y[split:]
+            self.model = XGBClassifier(
+                n_estimators=500,
+                max_depth=6,
+                learning_rate=0.02,
+                subsample=0.8,
+                colsample_bytree=0.8,
+                gamma=0.5,
+                reg_alpha=0.1,
+                reg_lambda=0.1,
+                n_jobs=-1,
+                eval_metric='logloss',
+                use_label_encoder=False,
+            )
+            self.model.fit(
+                X_train, y_train,
+                eval_set=[(X_val, y_val)],
+                early_stopping_rounds=20,
+                verbose=False,
+            )
+            logger.info("Model trained successfully")
+        except Exception as e:
+            logger.error(f"Error training model: {str(e)}")
+            self.model = None
+
+    def _save_model(self, path):
+        try:
+            joblib.dump(self.model, path)
+            logger.info(f"Model saved to {path}")
+        except Exception as e:
+            logger.error(f"Error saving model: {str(e)}")
+
+    def _load_model(self, path):
+        try:
+            self.model = joblib.load(path)
+            logger.info(f"Model loaded from {path}")
+        except Exception as e:
+            logger.error(f"Error loading model: {str(e)}")
+            self._train_model()
+
+    def calculate_indicators(self, df):
+        try:
+            self.indicators['rsi'] = RSIIndicator(df['close'], window=14).rsi()
+            self.indicators['macd'] = MACD(df['close']).macd()
+            stoch = StochasticOscillator(df['high'], df['low'], df['close'], window=14, smooth_window=3)
+            self.indicators['stoch_k'] = stoch.stoch()
+            self.indicators['stoch_d'] = stoch.stoch_signal()
+            self.indicators['adx'] = ADXIndicator(df['high'], df['low'], df['close'], window=14).adx()
+            self.indicators['ema_50'] = EMAIndicator(df['close'], window=50).ema_indicator()
+            self.indicators['ema_200'] = EMAIndicator(df['close'], window=200).ema_indicator()
+            self.indicators['atr'] = AverageTrueRange(df['high'], df['low'], df['close'], window=14).average_true_range()
+            bb = BollingerBands(df['close'], window=20, window_dev=2)
+            self.indicators['bollinger_upper'] = bb.bollinger_hband()
+            self.indicators['bollinger_lower'] = bb.bollinger_lband()
+            self.indicators['bollinger_mavg'] = bb.bollinger_mavg()
+            self.indicators['vwap'] = VolumeWeightedAveragePrice(
+                df['high'], df['low'], df['close'], df['volume'], window=14
+            ).volume_weighted_average_price()
+            return True
+        except Exception as e:
+            logger.error(f"Error calculating indicators: {str(e)}")
+            return False
+
+    def prepare_features(self, df):
+        try:
+            if not self.calculate_indicators(df):
+                raise Exception("Indicator calculation failed")
+            return np.array([[
+                self.indicators['rsi'].iloc[-1],
+                self.indicators['macd'].iloc[-1],
+                self.indicators['stoch_k'].iloc[-1],
+                self.indicators['stoch_d'].iloc[-1],
+                self.indicators['adx'].iloc[-1],
+                self.indicators['atr'].iloc[-1],
+                self.indicators['vwap'].iloc[-1],
+                self.indicators['bollinger_upper'].iloc[-1] - df['close'].iloc[-1],
+                df['close'].iloc[-1] - self.indicators['bollinger_lower'].iloc[-1],
+                self.indicators['ema_50'].iloc[-1] - self.indicators['ema_200'].iloc[-1],
+            ]])
+        except Exception as e:
+            logger.error(f"Error preparing features: {str(e)}")
+            return np.zeros((1, 10))
+
+    def generate_signal(self, data_dict, risk_percent=1.0, tp_multiplier=1.5, sl_multiplier=1.0):
+        df = data_dict['M5']
+        if df.empty or not self.calculate_indicators(df):
+            return {"signal": "ERROR", "message": "Indicator calculation failed", "price": 0.0, "tp": 0.0, "sl": 0.0, "confidence": 0.0, "time": datetime.now().strftime('%H:%M:%S'), "reason": "Data error", "indicators": {}}
+        
+        try:
+            current_time = df.index[-1]
+            hour = current_time.hour
+            current_price = df['close'].iloc[-1]
+            
+            if hour < 7 or hour > 19:
+                return {"signal": "HOLD", "reason": "Outside trading hours", "price": current_price, "tp": 0.0, "sl": 0.0, "confidence": 0.0, "time": current_time.strftime('%H:%M:%S'), "indicators": {}}
+            
+            df_h1 = data_dict['H1']
+            df_d = data_dict['D']
+            h1_trend = df_h1['close'].iloc[-1] > df_h1['close'].rolling(50).mean().iloc[-1]
+            daily_trend = df_d['close'].iloc[-1] > df_d['close'].rolling(200).mean().iloc[-1]
+            
+            features = self.prepare_features(df)
+            prediction = self.model.predict(features)[0]
+            confidence = np.max(self.model.predict_proba(features))
+            atr = self.indicators['atr'].iloc[-1]
+            tp = current_price + (atr * tp_multiplier)
+            sl = current_price - (atr * sl_multiplier)
+
+            signal_data = {"price": current_price, "tp": tp, "sl": sl, "confidence": confidence, "time": current_time.strftime('%H:%M:%S'), "indicators": {k: v.iloc[-1] for k, v in self.indicators.items() if v is not None}, "h1_trend": h1_trend, "daily_trend": daily_trend}
+            
+            rsi_value = self.indicators['rsi'].iloc[-1]
+            if prediction == 1 and self.current_position != "BUY":
+                if rsi_value < 60:
+                    if daily_trend and h1_trend:
+                        signal_data.update({"signal": "BUY", "reason": "Strong AI Buy Signal", "confidence": min(confidence * 1.2, 0.99)})
+                    elif not daily_trend:
+                        signal_data.update({"signal": "HOLD", "reason": "Counter to daily trend", "confidence": confidence * 0.4})
+                    else:
+                        signal_data.update({"signal": "BUY", "reason": "AI Buy Signal", "confidence": confidence * 0.7})
+                    return signal_data
+            
+            elif prediction == 0 and self.current_position == "BUY":
+                if rsi_value > 40:
+                    signal_data.update({"signal": "CLOSE", "reason": "AI Sell Signal"})
+                    return signal_data
+            
+            signal_data.update({"signal": "HOLD", "reason": "No clear signal"})
+            return signal_data
+            
+        except Exception as e:
+            logger.error(f"Error generating signal: {str(e)}")
+            return {"signal": "ERROR", "message": str(e), "price": 0.0, "tp": 0.0, "sl": 0.0, "confidence": 0.0, "time": datetime.now().strftime('%H:%M:%S'), "reason": "Exception occurred", "indicators": {}}

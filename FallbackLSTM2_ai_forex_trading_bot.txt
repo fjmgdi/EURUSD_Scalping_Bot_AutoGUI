@@ -1,0 +1,972 @@
+import os
+import sys
+import logging
+import numpy as np
+import pandas as pd
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+from datetime import datetime, timedelta
+import time
+import joblib
+import shap
+from dotenv import load_dotenv
+from ta.momentum import RSIIndicator, StochasticOscillator
+from ta.trend import MACD, EMAIndicator, ADXIndicator
+from ta.volatility import BollingerBands, AverageTrueRange
+from ta.volume import VolumeWeightedAveragePrice, OnBalanceVolumeIndicator
+from lightgbm import LGBMClassifier
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, classification_report
+from oandapyV20 import API
+from oandapyV20.endpoints.instruments import InstrumentsCandles
+from oandapyV20.endpoints.accounts import AccountDetails
+from oandapyV20.endpoints.orders import OrderCreate
+from oandapyV20.endpoints.trades import TradeClose, OpenTrades
+from PyQt5.QtWidgets import (
+    QApplication, QMainWindow, QWidget, QLabel, QLineEdit, QPushButton,
+    QVBoxLayout, QHBoxLayout, QGroupBox, QTextEdit, QDoubleSpinBox,
+    QFormLayout, QTabWidget, QCheckBox, QComboBox, QMessageBox,
+    QTableWidget, QHeaderView, QTableWidgetItem, QFileDialog, QSpinBox
+)
+from PyQt5.QtGui import QColor, QIcon
+from PyQt5.QtCore import Qt, QTimer, QThread, pyqtSignal, QSettings, QSize
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('trading_bot.log'),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
+
+# Ensure required directories exist
+os.makedirs("models", exist_ok=True)
+os.makedirs("logs", exist_ok=True)
+os.makedirs("backups/models", exist_ok=True)
+
+class DataFetcher(QThread):
+    data_updated = pyqtSignal(dict)
+    error_occurred = pyqtSignal(str)
+    
+    def __init__(self, api, symbol="EUR_USD", granularities=["M5"], count=500):
+        super().__init__()
+        self.api = api
+        self.symbol = symbol
+        self.granularities = granularities
+        self.count = count
+        self.running = False
+        self.last_update = {}
+        
+    def process_candles(self, candles):
+        try:
+            if not candles or 'candles' not in candles:
+                raise ValueError("No candle data received")
+                
+            data = []
+            for candle in candles['candles']:
+                if not candle['complete']:
+                    continue
+                    
+                candle_data = {
+                    'time': pd.to_datetime(candle['time']),
+                    'open': float(candle['mid']['o']),
+                    'high': float(candle['mid']['h']),
+                    'low': float(candle['mid']['l']),
+                    'close': float(candle['mid']['c']),
+                    'volume': int(candle['volume'])
+                }
+                data.append(candle_data)
+                
+            df = pd.DataFrame(data)
+            df.set_index('time', inplace=True)
+            return df
+            
+        except Exception as e:
+            logger.error(f"Error processing candles: {str(e)}")
+            raise
+            
+    def run(self):
+        self.running = True
+        logger.info(f"Data fetcher started for {self.symbol}")
+        
+        while self.running:
+            try:
+                data = {}
+                for granularity in self.granularities:
+                    params = {
+                        "granularity": granularity,
+                        "count": self.count,
+                        "price": "M"
+                    }
+                    endpoint = InstrumentsCandles(instrument=self.symbol, params=params)
+                    response = self.api.request(endpoint)
+                    df = self.process_candles(response)
+                    data[granularity] = df
+                
+                if data:
+                    self.data_updated.emit(data)
+                    self.last_update = data
+                    
+                time.sleep(60)  # Update every minute
+                
+            except Exception as e:
+                logger.error(f"Error in data fetcher: {str(e)}")
+                self.error_occurred.emit(str(e))
+                time.sleep(30)
+    
+    def stop(self):
+        self.running = False
+        logger.info("Data fetcher stopped")
+
+class OrderBookAnalyzer:
+    def __init__(self):
+        self.bids = []
+        self.asks = []
+        
+    def update(self, bid_ask_data):
+        self.bids = sorted(bid_ask_data['bids'], key=lambda x: -x['price'])
+        self.asks = sorted(bid_ask_data['asks'], key=lambda x: x['price'])
+    
+    def get_imbalance(self, depth=5):
+        bid_vol = sum(order['volume'] for order in self.bids[:depth])
+        ask_vol = sum(order['volume'] for order in self.asks[:depth])
+        return (bid_vol - ask_vol) / (bid_vol + ask_vol + 1e-6)
+
+class AITradingStrategy:
+    def __init__(self, symbol="EUR_USD", model_path=None):
+        self.symbol = symbol
+        self.model = None
+        self.indicators = {}
+        self.current_position = None
+        self.position_size = 0
+        self.entry_price = 0
+        self.daily_pnl = 0
+        self.total_pnl = 0
+        self.win_rate = 0
+        self.trade_count = 0
+        self.win_count = 0
+        self.last_signal = None
+        self.min_confidence = 0.55
+        self.atr_multiplier = 2.0
+        self.auto_trading = True
+        self.ob_analyzer = OrderBookAnalyzer()
+        self.feature_names = [
+            'RSI', 'MACD', 'Stoch_K', 'Stoch_D', 'ADX', 
+            'ATR', 'VWAP', 'BB_Upper_Dev', 'BB_Lower_Dev', 
+            'EMA_Diff', 'OB_Imbalance_5', 'OB_Imbalance_10'
+        ]
+        self.features = []
+        
+        if model_path:
+            self._load_model(model_path)
+        else:
+            self._train_model()
+            
+    def _train_model(self):
+        try:
+            # Generate synthetic data with meaningful patterns
+            np.random.seed(42)
+            n_samples = 5000
+            X = np.zeros((n_samples, len(self.feature_names)))
+            
+            for i in range(n_samples):
+                trend = np.sin(i / 100) * 0.5 + 0.5
+                noise = np.random.normal(0, 0.1, len(self.feature_names))
+                
+                X[i, 0] = trend * 0.8 + noise[0]  # RSI
+                X[i, 1] = np.sin(i / 50) * 0.3 + noise[1]  # MACD
+                X[i, 2:4] = trend * 0.6 + noise[2:4]  # Stochastic
+                X[i, 4] = np.abs(trend * 0.7 + noise[4])  # ADX
+                X[i, 5] = 0.02 + np.abs(noise[5])  # ATR
+                X[i, 6] = trend * 0.9 + noise[6]  # VWAP
+                X[i, 7:9] = trend * 0.5 + noise[7:9]  # Bollinger
+                X[i, 9] = np.sin(i / 70) * 0.4 + noise[9]  # EMA diff
+                X[i, 10:] = np.random.uniform(-0.5, 0.5, 2)  # Order book
+                
+            y = np.where(
+                (X[:, 0] > 0.65) & (X[:, 1] > 0) & 
+                (X[:, 4] > 0.5) & (X[:, 9] > 0.2),
+                1, 0
+            )
+            
+            # Add noise to targets
+            flip_mask = np.random.random(n_samples) < 0.05
+            y[flip_mask] = 1 - y[flip_mask]
+            
+            # Create and train model
+            model = LGBMClassifier(
+                n_estimators=150,
+                max_depth=4,
+                learning_rate=0.05,
+                subsample=0.8,
+                colsample_bytree=0.8,
+                min_child_samples=25,
+                reg_alpha=0.1,
+                reg_lambda=0.1,
+                random_state=42,
+                verbose=-1
+            )
+            
+            # Simple fit without early stopping
+            model.fit(X, y)
+            
+            # Create pipeline with trained model
+            self.model = Pipeline([
+                ('scaler', StandardScaler()),
+                ('lgbm', model)
+            ])
+            
+            logger.info("Model trained successfully with synthetic data")
+            
+        except Exception as e:
+            logger.error(f"Error training model: {str(e)}")
+            raise
+            
+    def _load_model(self, path):
+        try:
+            self.model = joblib.load(path)
+            logger.info(f"Model loaded from {path}")
+        except Exception as e:
+            logger.error(f"Error loading model: {str(e)}")
+            self._train_model()
+            
+    def calculate_indicators(self, df):
+        try:
+            close = df['close']
+            high = df['high']
+            low = df['low']
+            volume = df['volume']
+            
+            self.indicators['rsi'] = RSIIndicator(close=close).rsi()
+            self.indicators['macd'] = MACD(close=close).macd()
+            
+            stoch = StochasticOscillator(
+                high=high, low=low, close=close, 
+                window=14, smooth_window=3
+            )
+            self.indicators['stoch_k'] = stoch.stoch()
+            self.indicators['stoch_d'] = stoch.stoch_signal()
+            
+            self.indicators['adx'] = ADXIndicator(
+                high=high, low=low, close=close
+            ).adx()
+            
+            self.indicators['ema_50'] = EMAIndicator(close=close, window=50).ema_indicator()
+            self.indicators['ema_200'] = EMAIndicator(close=close, window=200).ema_indicator()
+            
+            self.indicators['atr'] = AverageTrueRange(
+                high=high, low=low, close=close
+            ).average_true_range()
+            
+            bb = BollingerBands(close=close)
+            self.indicators['bollinger_upper'] = bb.bollinger_hband()
+            self.indicators['bollinger_lower'] = bb.bollinger_lband()
+            
+            self.indicators['vwap'] = VolumeWeightedAveragePrice(
+                high=high, low=low, close=close, volume=volume
+            ).volume_weighted_average_price()
+            
+            self.indicators['obv'] = OnBalanceVolumeIndicator(
+                close=close, volume=volume
+            ).on_balance_volume()
+            
+            return True
+            
+        except Exception as e:
+            logger.error(f"Error calculating indicators: {str(e)}")
+            return False
+            
+    def prepare_features(self, df):
+        try:
+            if not self.calculate_indicators(df):
+                raise ValueError("Indicator calculation failed")
+                
+            features = [
+                self.indicators['rsi'].iloc[-1],
+                self.indicators['macd'].iloc[-1],
+                self.indicators['stoch_k'].iloc[-1],
+                self.indicators['stoch_d'].iloc[-1],
+                self.indicators['adx'].iloc[-1],
+                self.indicators['atr'].iloc[-1],
+                self.indicators['vwap'].iloc[-1],
+                self.indicators['bollinger_upper'].iloc[-1] - df['close'].iloc[-1],
+                df['close'].iloc[-1] - self.indicators['bollinger_lower'].iloc[-1],
+                self.indicators['ema_50'].iloc[-1] - self.indicators['ema_200'].iloc[-1],
+                self.ob_analyzer.get_imbalance(5),
+                self.ob_analyzer.get_imbalance(10)
+            ]
+            
+            feature_array = np.array(features).reshape(1, -1)
+            self.features.append(feature_array)
+            return feature_array
+            
+        except Exception as e:
+            logger.error(f"Error preparing features: {str(e)}")
+            return np.zeros((1, len(self.feature_names)))
+            
+    def generate_signal(self, data_dict):
+        signal = {
+            "signal": "HOLD",
+            "reason": "No clear signal",
+            "price": 0.0,
+            "tp": 0.0,
+            "sl": 0.0,
+            "confidence": 0.0,
+            "time": datetime.now().strftime('%H:%M:%S'),
+            "indicators": {},
+            "ob_imbalance": 0.0
+        }
+        
+        try:
+            if not data_dict or 'M5' not in data_dict:
+                signal['reason'] = "No data available"
+                return signal
+                
+            df = data_dict['M5']
+            if df.empty:
+                signal['reason'] = "Empty data frame"
+                return signal
+                
+            current_time = df.index[-1]
+            current_price = df['close'].iloc[-1]
+            
+            # Market hours filter (8am-5pm UTC)
+            if not (8 <= current_time.hour < 17):
+                signal.update({
+                    "signal": "HOLD",
+                    "reason": "Outside trading hours",
+                    "price": current_price
+                })
+                return signal
+                
+            features = self.prepare_features(df)
+            prediction = self.model.predict(features)[0]
+            proba = self.model.predict_proba(features)[0]
+            confidence = max(proba)
+            
+            atr = self.indicators['atr'].iloc[-1]
+            tp = current_price + (atr * self.atr_multiplier)
+            sl = current_price - (atr * self.atr_multiplier * 0.8)
+            
+            signal.update({
+                "price": current_price,
+                "tp": tp,
+                "sl": sl,
+                "confidence": confidence,
+                "time": current_time.strftime('%H:%M:%S'),
+                "indicators": {k: v.iloc[-1] for k, v in self.indicators.items()},
+                "ob_imbalance": self.ob_analyzer.get_imbalance(5)
+            })
+            
+            # Buy signal conditions
+            if (prediction == 1 and 
+                confidence >= self.min_confidence and
+                self.indicators['adx'].iloc[-1] > 20 and
+                self.ob_analyzer.get_imbalance(5) > -0.3):
+                
+                signal.update({
+                    "signal": "BUY",
+                    "reason": f"AI Buy Signal (Confidence: {confidence:.2f})"
+                })
+                
+            # Sell/Close conditions
+            elif (self.current_position == "BUY" and 
+                  (confidence < 0.4 or 
+                   self.indicators['rsi'].iloc[-1] > 70)):
+                
+                signal.update({
+                    "signal": "CLOSE",
+                    "reason": "Exit conditions met"
+                })
+                
+            self.last_signal = signal
+            return signal
+            
+        except Exception as e:
+            logger.error(f"Error generating signal: {str(e)}")
+            signal.update({
+                "signal": "ERROR",
+                "reason": str(e)
+            })
+            return signal
+
+class TradingBotGUI(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("AI Forex Trading Bot")
+        self.setGeometry(100, 100, 1200, 800)
+        self.settings = QSettings("AI_Trading_Bot", "Forex_Trading")
+        self.init_ui()
+        self.init_api()
+        self.init_strategy()
+        self.init_data_fetcher()
+        self.load_settings()
+        
+    def init_ui(self):
+        self.central_widget = QWidget()
+        self.setCentralWidget(self.central_widget)
+        self.main_layout = QHBoxLayout()
+        self.central_widget.setLayout(self.main_layout)
+        
+        # Left panel (controls)
+        self.left_panel = QWidget()
+        self.left_panel.setMaximumWidth(400)
+        self.left_layout = QVBoxLayout()
+        self.left_panel.setLayout(self.left_layout)
+        
+        # Right panel (charts)
+        self.right_panel = QWidget()
+        self.right_layout = QVBoxLayout()
+        self.right_panel.setLayout(self.right_layout)
+        
+        self.main_layout.addWidget(self.left_panel)
+        self.main_layout.addWidget(self.right_panel)
+        
+        self.create_tabs()
+        self.create_chart_area()
+        self.create_status_bar()
+        
+    def create_tabs(self):
+        self.left_tabs = QTabWidget()
+        self.left_layout.addWidget(self.left_tabs)
+        
+        # Settings Tab
+        self.settings_tab = QWidget()
+        self.settings_layout = QVBoxLayout()
+        self.settings_tab.setLayout(self.settings_layout)
+        
+        # API Settings
+        api_group = QGroupBox("API Settings")
+        api_form = QFormLayout()
+        self.api_key_input = QLineEdit()
+        self.api_key_input.setEchoMode(QLineEdit.Password)
+        self.account_id_input = QLineEdit()
+        self.environment_combo = QComboBox()
+        self.environment_combo.addItems(["Practice", "Live"])
+        api_form.addRow("API Key:", self.api_key_input)
+        api_form.addRow("Account ID:", self.account_id_input)
+        api_form.addRow("Environment:", self.environment_combo)
+        api_group.setLayout(api_form)
+        self.settings_layout.addWidget(api_group)
+        
+        # Trading Settings
+        trading_group = QGroupBox("Trading Settings")
+        trading_form = QFormLayout()
+        self.symbol_combo = QComboBox()
+        self.symbol_combo.addItems(["EUR_USD", "GBP_USD", "USD_JPY"])
+        self.risk_spin = QDoubleSpinBox()
+        self.risk_spin.setRange(0.1, 5.0)
+        self.risk_spin.setValue(1.0)
+        self.risk_spin.setSuffix("%")
+        trading_form.addRow("Symbol:", self.symbol_combo)
+        trading_form.addRow("Risk Percentage:", self.risk_spin)
+        trading_group.setLayout(trading_form)
+        self.settings_layout.addWidget(trading_group)
+        
+        # Buttons
+        button_layout = QHBoxLayout()
+        self.save_btn = QPushButton("Save Settings")
+        self.save_btn.clicked.connect(self.save_settings)
+        self.start_btn = QPushButton("Start Bot")
+        self.start_btn.clicked.connect(self.start_bot)
+        self.stop_btn = QPushButton("Stop Bot")
+        self.stop_btn.clicked.connect(self.stop_bot)
+        self.stop_btn.setEnabled(False)
+        button_layout.addWidget(self.save_btn)
+        button_layout.addWidget(self.start_btn)
+        button_layout.addWidget(self.stop_btn)
+        self.settings_layout.addLayout(button_layout)
+        
+        self.left_tabs.addTab(self.settings_tab, "Settings")
+        
+        # Strategy Tab
+        self.strategy_tab = QWidget()
+        self.strategy_layout = QVBoxLayout()
+        self.strategy_tab.setLayout(self.strategy_layout)
+        
+        # Strategy parameters
+        strategy_params = QGroupBox("Strategy Parameters")
+        params_form = QFormLayout()
+        
+        self.min_confidence_spin = QDoubleSpinBox()
+        self.min_confidence_spin.setRange(0.1, 1.0)
+        self.min_confidence_spin.setValue(0.55)
+        self.min_confidence_spin.setSingleStep(0.05)
+        
+        self.atr_multiplier_spin = QDoubleSpinBox()
+        self.atr_multiplier_spin.setRange(0.5, 5.0)
+        self.atr_multiplier_spin.setValue(2.0)
+        self.atr_multiplier_spin.setSingleStep(0.1)
+        
+        params_form.addRow("Min Confidence:", self.min_confidence_spin)
+        params_form.addRow("ATR Multiplier:", self.atr_multiplier_spin)
+        strategy_params.setLayout(params_form)
+        self.strategy_layout.addWidget(strategy_params)
+        
+        # Model management
+        model_group = QGroupBox("Model Management")
+        model_layout = QVBoxLayout()
+        
+        self.model_path_input = QLineEdit()
+        self.model_path_input.setPlaceholderText("Path to model file")
+        browse_btn = QPushButton("Browse...")
+        browse_btn.clicked.connect(self.browse_model_file)
+        
+        path_layout = QHBoxLayout()
+        path_layout.addWidget(self.model_path_input)
+        path_layout.addWidget(browse_btn)
+        
+        self.train_btn = QPushButton("Train New Model")
+        self.train_btn.clicked.connect(self.train_model)
+        
+        model_layout.addLayout(path_layout)
+        model_layout.addWidget(self.train_btn)
+        model_group.setLayout(model_layout)
+        self.strategy_layout.addWidget(model_group)
+        
+        self.left_tabs.addTab(self.strategy_tab, "Strategy")
+        
+        # Model Insights Tab (SHAP)
+        self.insights_tab = QWidget()
+        self.insights_layout = QVBoxLayout()
+        self.insights_tab.setLayout(self.insights_layout)
+        
+        self.figure_shap = plt.figure()
+        self.canvas_shap = FigureCanvas(self.figure_shap)
+        self.insights_layout.addWidget(self.canvas_shap)
+        
+        btn_shap = QPushButton("Explain Last Prediction")
+        btn_shap.clicked.connect(self.update_shap_plot)
+        self.insights_layout.addWidget(btn_shap)
+        
+        self.left_tabs.addTab(self.insights_tab, "AI Insights")
+        
+        # Trading Log Tab
+        self.log_tab = QWidget()
+        self.log_layout = QVBoxLayout()
+        self.log_tab.setLayout(self.log_layout)
+        
+        self.trade_log = QTextEdit()
+        self.trade_log.setReadOnly(True)
+        self.log_layout.addWidget(self.trade_log)
+        
+        self.left_tabs.addTab(self.log_tab, "Trading Log")
+        
+    def create_chart_area(self):
+        self.figure = plt.figure()
+        self.canvas = FigureCanvas(self.figure)
+        self.right_layout.addWidget(self.canvas)
+        
+        self.signal_display = QLabel("Awaiting first signal...")
+        self.signal_display.setAlignment(Qt.AlignCenter)
+        self.signal_display.setStyleSheet("font-size: 16px; font-weight: bold;")
+        self.right_layout.addWidget(self.signal_display)
+        
+    def create_status_bar(self):
+        self.status_bar = self.statusBar()
+        self.status_label = QLabel("Initializing...")
+        self.status_bar.addWidget(self.status_label)
+        
+    def init_api(self):
+        load_dotenv()
+        self.api_key_input.setText(os.getenv('OANDA_API_KEY', ''))
+        self.account_id_input.setText(os.getenv('OANDA_ACCOUNT_ID', ''))
+        
+    def init_strategy(self):
+        self.strategy = None
+        self.strategy_active = False
+        
+    def init_data_fetcher(self):
+        self.data_fetcher = None
+        self.data_timer = QTimer()
+        self.data_timer.setInterval(1000)
+        self.data_timer.timeout.connect(self.update_charts)
+        
+    def load_settings(self):
+        try:
+            self.api_key_input.setText(self.settings.value("api_key", ""))
+            self.account_id_input.setText(self.settings.value("account_id", ""))
+            self.environment_combo.setCurrentText(self.settings.value("environment", "Practice"))
+            self.symbol_combo.setCurrentText(self.settings.value("symbol", "EUR_USD"))
+            self.risk_spin.setValue(float(self.settings.value("risk", 1.0)))
+            self.min_confidence_spin.setValue(float(self.settings.value("min_confidence", 0.55)))
+            self.atr_multiplier_spin.setValue(float(self.settings.value("atr_multiplier", 2.0)))
+            self.model_path_input.setText(self.settings.value("model_path", ""))
+            
+            logger.info("Settings loaded successfully")
+        except Exception as e:
+            logger.error(f"Error loading settings: {str(e)}")
+            
+    def save_settings(self):
+        try:
+            self.settings.setValue("api_key", self.api_key_input.text())
+            self.settings.setValue("account_id", self.account_id_input.text())
+            self.settings.setValue("environment", self.environment_combo.currentText())
+            self.settings.setValue("symbol", self.symbol_combo.currentText())
+            self.settings.setValue("risk", self.risk_spin.value())
+            self.settings.setValue("min_confidence", self.min_confidence_spin.value())
+            self.settings.setValue("atr_multiplier", self.atr_multiplier_spin.value())
+            self.settings.setValue("model_path", self.model_path_input.text())
+            
+            QMessageBox.information(self, "Success", "Settings saved successfully")
+            logger.info("Settings saved successfully")
+        except Exception as e:
+            logger.error(f"Error saving settings: {str(e)}")
+            QMessageBox.critical(self, "Error", f"Failed to save settings: {str(e)}")
+            
+    def browse_model_file(self):
+        file_path, _ = QFileDialog.getOpenFileName(
+            self, "Select Model File", "", "Joblib Files (*.joblib)"
+        )
+        if file_path:
+            self.model_path_input.setText(file_path)
+            
+    def train_model(self):
+        try:
+            symbol = self.symbol_combo.currentText()
+            model_path = self.model_path_input.text()
+            
+            if not model_path:
+                model_path = f"models/{symbol}_model.joblib"
+                self.model_path_input.setText(model_path)
+                
+            self.strategy = AITradingStrategy(symbol=symbol)
+            joblib.dump(self.strategy.model, model_path)
+            
+            QMessageBox.information(self, "Success", f"Model trained and saved to {model_path}")
+            logger.info(f"Model trained and saved to {model_path}")
+        except Exception as e:
+            logger.error(f"Error training model: {str(e)}")
+            QMessageBox.critical(self, "Error", f"Failed to train model: {str(e)}")
+            
+    def start_bot(self):
+        try:
+            api_key = self.api_key_input.text()
+            account_id = self.account_id_input.text()
+            environment = self.environment_combo.currentText().lower()
+            symbol = self.symbol_combo.currentText()
+            
+            if not api_key or not account_id:
+                raise ValueError("API key and account ID are required")
+                
+            # Verify API credentials first
+            test_endpoint = AccountDetails(accountID=account_id)
+            try:
+                self.api = API(access_token=api_key, environment=environment)
+                self.api.request(test_endpoint)
+            except Exception as api_error:
+                raise ValueError(f"API connection failed: {str(api_error)}")
+            
+            # Initialize strategy
+            model_path = self.model_path_input.text()
+            if model_path and os.path.exists(model_path):
+                self.strategy = AITradingStrategy(symbol=symbol, model_path=model_path)
+            else:
+                self.strategy = AITradingStrategy(symbol=symbol)
+                
+            # Update strategy parameters
+            self.strategy.min_confidence = self.min_confidence_spin.value()
+            self.strategy.atr_multiplier = self.atr_multiplier_spin.value()
+            
+            # Initialize data fetcher
+            self.data_fetcher = DataFetcher(
+                api=self.api,
+                symbol=symbol,
+                granularities=["M5"],
+                count=500
+            )
+            self.data_fetcher.data_updated.connect(self.handle_new_data)
+            self.data_fetcher.error_occurred.connect(self.handle_error)
+            self.data_fetcher.start()
+            
+            # Update UI
+            self.start_btn.setEnabled(False)
+            self.stop_btn.setEnabled(True)
+            self.status_label.setText(f"Running - Trading {symbol}")
+            self.strategy_active = True
+            self.data_timer.start()
+            
+            logger.info(f"Bot started for {symbol}")
+        except Exception as e:
+            logger.error(f"Error starting bot: {str(e)}")
+            QMessageBox.critical(self, "Error", f"Failed to start bot: {str(e)}")
+            
+    def stop_bot(self):
+        try:
+            if self.data_fetcher:
+                self.data_fetcher.stop()
+                self.data_fetcher.wait()
+                
+            self.data_timer.stop()
+            self.strategy_active = False
+            
+            # Update UI
+            self.start_btn.setEnabled(True)
+            self.stop_btn.setEnabled(False)
+            self.status_label.setText("Stopped")
+            
+            logger.info("Bot stopped")
+        except Exception as e:
+            logger.error(f"Error stopping bot: {str(e)}")
+            
+    def handle_new_data(self, data):
+        try:
+            if not self.strategy_active:
+                return
+                
+            if not data or 'M5' not in data:
+                logger.error("Invalid data format received")
+                return
+                
+            signal = self.strategy.generate_signal(data)
+            self.update_signal_display(signal)
+            self.log_trade_signal(signal)
+            
+            if signal['signal'] == "BUY" and self.strategy.auto_trading:
+                self.execute_trade(signal)
+            elif signal['signal'] == "CLOSE" and self.strategy.current_position:
+                self.close_trade(signal)
+                
+        except Exception as e:
+            logger.error(f"Error handling new data: {str(e)}")
+            
+    def execute_trade(self, signal):
+        try:
+            symbol = self.symbol_combo.currentText()
+            risk_percent = self.risk_spin.value()
+            
+            # Get account balance to calculate position size
+            endpoint = AccountDetails(accountID=self.account_id_input.text())
+            response = self.api.request(endpoint)
+            balance = float(response['account']['balance'])
+            
+            # Calculate position size based on risk
+            risk_amount = balance * (risk_percent / 100)
+            atr = self.strategy.indicators['atr'].iloc[-1]
+            position_size = int(risk_amount / (atr * 10))  # Simplified calculation
+            
+            # Create order
+            order_data = {
+                "order": {
+                    "instrument": symbol,
+                    "units": str(position_size),
+                    "type": "MARKET",
+                    "positionFill": "DEFAULT",
+                    "takeProfitOnFill": {
+                        "price": str(signal['tp'])
+                    },
+                    "stopLossOnFill": {
+                        "price": str(signal['sl'])
+                    }
+                }
+            }
+            
+            endpoint = OrderCreate(accountID=self.account_id_input.text(), data=order_data)
+            response = self.api.request(endpoint)
+            
+            # Update strategy state
+            self.strategy.current_position = "BUY"
+            self.strategy.position_size = position_size
+            self.strategy.entry_price = signal['price']
+            
+            # Log trade
+            self.trade_log.append(f"{signal['time']} - BUY {position_size} units at {signal['price']}")
+            logger.info(f"Executed BUY trade for {position_size} units at {signal['price']}")
+            
+        except Exception as e:
+            logger.error(f"Error executing trade: {str(e)}")
+            
+    def close_trade(self, signal):
+        try:
+            # Get open trades
+            endpoint = OpenTrades(accountID=self.account_id_input.text())
+            response = self.api.request(endpoint)
+            
+            if not response['trades']:
+                return
+                
+            # Close the first trade (simplified)
+            trade_id = response['trades'][0]['id']
+            endpoint = TradeClose(accountID=self.account_id_input.text(), tradeID=trade_id)
+            response = self.api.request(endpoint)
+            
+            # Calculate PnL
+            exit_price = signal['price']
+            pnl = (exit_price - self.strategy.entry_price) * self.strategy.position_size
+            
+            # Update strategy state
+            self.strategy.current_position = None
+            self.strategy.position_size = 0
+            self.strategy.total_pnl += pnl
+            self.strategy.trade_count += 1
+            if pnl > 0:
+                self.strategy.win_count += 1
+            self.strategy.win_rate = self.strategy.win_count / self.strategy.trade_count
+            
+            # Log trade
+            self.trade_log.append(
+                f"{signal['time']} - CLOSED position at {exit_price} "
+                f"(PnL: {pnl:.2f}, Win Rate: {self.strategy.win_rate:.2%})"
+            )
+            logger.info(f"Closed trade with PnL: {pnl:.2f}")
+            
+        except Exception as e:
+            logger.error(f"Error closing trade: {str(e)}")
+            
+    def update_signal_display(self, signal):
+        try:
+            if not signal or 'tp' not in signal:
+                signal = {
+                    'signal': 'ERROR',
+                    'reason': 'Invalid signal',
+                    'price': 0.0,
+                    'tp': 0.0,
+                    'sl': 0.0,
+                    'confidence': 0.0,
+                    'time': datetime.now().strftime('%H:%M:%S')
+                }
+            
+            signal_text = (
+                f"{signal['time']} - {signal['signal']} - {signal['reason']}\n"
+                f"Price: {signal['price']:.5f} | Confidence: {signal['confidence']:.2f}\n"
+                f"TP: {signal['tp']:.5f} | SL: {signal['sl']:.5f}"
+            )
+            
+            self.signal_display.setText(signal_text)
+            
+            # Color coding
+            if signal['signal'] == "BUY":
+                self.signal_display.setStyleSheet(
+                    "font-size: 16px; font-weight: bold; color: green;"
+                )
+            elif signal['signal'] == "CLOSE":
+                self.signal_display.setStyleSheet(
+                    "font-size: 16px; font-weight: bold; color: red;"
+                )
+            else:
+                self.signal_display.setStyleSheet(
+                    "font-size: 16px; font-weight: bold; color: black;"
+                )
+                
+        except Exception as e:
+            logger.error(f"Error updating signal display: {str(e)}")
+            
+    def log_trade_signal(self, signal):
+        try:
+            log_entry = (
+                f"{signal['time']} - {signal['signal']} - {signal['reason']} | "
+                f"Price: {signal['price']:.5f} | Confidence: {signal['confidence']:.2f}"
+            )
+            self.trade_log.append(log_entry)
+        except Exception as e:
+            logger.error(f"Error logging trade signal: {str(e)}")
+            
+    def update_charts(self):
+        try:
+            if not self.data_fetcher or not self.data_fetcher.last_update:
+                return
+                
+            df = self.data_fetcher.last_update['M5']
+            if df.empty:
+                return
+                
+            plt.clf()
+            ax = self.figure.add_subplot(111)
+            
+            # Plot price
+            ax.plot(df.index, df['close'], label='Price', color='blue')
+            
+            # Plot indicators if available
+            if hasattr(self.strategy, 'indicators') and self.strategy.indicators:
+                if 'ema_50' in self.strategy.indicators:
+                    ax.plot(df.index, self.strategy.indicators['ema_50'], label='EMA 50', color='orange')
+                if 'ema_200' in self.strategy.indicators:
+                    ax.plot(df.index, self.strategy.indicators['ema_200'], label='EMA 200', color='red')
+                if 'bollinger_upper' in self.strategy.indicators:
+                    ax.plot(df.index, self.strategy.indicators['bollinger_upper'], label='BB Upper', color='purple', linestyle='--')
+                if 'bollinger_lower' in self.strategy.indicators:
+                    ax.plot(df.index, self.strategy.indicators['bollinger_lower'], label='BB Lower', color='purple', linestyle='--')
+                
+            ax.set_title(f"{self.symbol_combo.currentText()} Price Chart")
+            ax.set_xlabel("Time")
+            ax.set_ylabel("Price")
+            ax.legend()
+            ax.grid(True)
+            
+            # Adjust layout to prevent label cutoff
+            self.figure.tight_layout()
+            self.canvas.draw()
+            
+        except Exception as e:
+            logger.error(f"Error updating charts: {str(e)}")
+            
+    def update_shap_plot(self):
+        try:
+            if not self.strategy or not hasattr(self.strategy, 'last_signal'):
+                QMessageBox.warning(self, "Warning", "No prediction data available")
+                return
+                
+            if not self.strategy.model or len(self.strategy.features) == 0:
+                QMessageBox.warning(self, "Warning", "No model or feature data available")
+                return
+                
+            plt.clf()
+            ax = self.figure_shap.add_subplot(111)
+            
+            # Get the model from the pipeline
+            model = self.strategy.model.named_steps['lgbm']
+            
+            # Create SHAP explainer
+            explainer = shap.TreeExplainer(model)
+            
+            # Get the last features
+            last_features = self.strategy.features[-1]
+            
+            # Calculate SHAP values
+            shap_values = explainer.shap_values(last_features)
+            
+            # Plot SHAP values
+            shap.summary_plot(
+                shap_values[1], 
+                last_features, 
+                feature_names=self.strategy.feature_names,
+                plot_type="bar",
+                show=False
+            )
+            
+            self.canvas_shap.draw()
+            
+        except Exception as e:
+            logger.error(f"Error updating SHAP plot: {str(e)}")
+            QMessageBox.critical(self, "Error", f"Failed to generate SHAP plot: {str(e)}")
+            
+    def handle_error(self, error_msg):
+        QMessageBox.critical(self, "Error", error_msg)
+        self.status_label.setText(f"Error: {error_msg[:50]}...")
+        
+    def closeEvent(self, event):
+        self.stop_bot()
+        event.accept()
+
+def main():
+    app = QApplication(sys.argv)
+    app.setStyle('Fusion')
+    
+    # Set application font
+    font = app.font()
+    font.setPointSize(10)
+    app.setFont(font)
+    
+    window = TradingBotGUI()
+    window.show()
+    sys.exit(app.exec_())
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,8 @@
+@"
+services:
+  - type: web
+    name: forex-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python ai_forex_trading_bot.py
+"@ | Out-File -FilePath render.yaml -Encoding utf8

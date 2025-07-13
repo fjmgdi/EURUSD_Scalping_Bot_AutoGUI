@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trading View</title>
+    <script src="qrc:///qtwebchannel/qwebchannel.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        #signalDisplay { 
+            padding: 15px; 
+            border-radius: 5px; 
+            margin-bottom: 20px;
+            background-color: #f8f9fa;
+        }
+        .signal-buy { background-color: #d4edda; color: #155724; }
+        .signal-sell { background-color: #f8d7da; color: #721c24; }
+        .signal-hold { background-color: #e2e3e5; color: #383d41; }
+        .indicator-table { width: 100%; border-collapse: collapse; }
+        .indicator-table th, .indicator-table td { 
+            padding: 8px; 
+            text-align: left; 
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h2>Trading Signal</h2>
+    <div id="signalDisplay" class="signal-hold">
+        <p>Waiting for signal...</p>
+    </div>
+    
+    <h3>Indicators</h3>
+    <table class="indicator-table">
+        <thead>
+            <tr>
+                <th>Indicator</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody id="indicatorsTable">
+            <!-- Indicators will be populated here -->
+        </tbody>
+    </table>
+
+    <script>
+        // Initialize QWebChannel
+        new QWebChannel(qt.webChannelTransport, function(channel) {
+            window.bridge = channel.objects.bridge;
+        });
+
+        // Function to update the signal display
+        function updateSignalDisplay(signal) {
+            const signalDisplay = document.getElementById('signalDisplay');
+            const indicatorsTable = document.getElementById('indicatorsTable');
+            
+            // Clear previous classes
+            signalDisplay.className = 'signal-' + signal.signal.toLowerCase();
+            
+            // Update signal info
+            signalDisplay.innerHTML = `
+                <h3>${signal.signal} Signal</h3>
+                <p><strong>Time:</strong> ${signal.time}</p>
+                <p><strong>Price:</strong> ${signal.price.toFixed(5)}</p>
+                <p><strong>Confidence:</strong> ${(signal.confidence * 100).toFixed(1)}%</p>
+                <p><strong>Reason:</strong> ${signal.reason}</p>
+            `;
+            
+            // Update indicators table
+            indicatorsTable.innerHTML = '';
+            for (const [name, value] of Object.entries(signal.indicators)) {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${name}</td>
+                    <td>${value.toFixed(4)}</td>
+                `;
+                indicatorsTable.appendChild(row);
+            }
+        }
+    </script>
+</body>
+</html>

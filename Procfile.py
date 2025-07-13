@@ -1,0 +1,1 @@
+web: python ai_forex_trading_bot.py

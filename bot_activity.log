@@ -1,0 +1,761 @@
+2025-06-11 13:27:17,439 - INFO - setting up API-client for environment practice
+2025-06-11 13:27:17,440 - INFO - Starting trading bot...
+2025-06-11 13:27:17,606 - INFO - EUR_USD - Signal: HOLD
+2025-06-11 13:27:17,606 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:27:17,753 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/EUR_USD
+2025-06-11 13:27:17,846 - INFO - EUR_USD - Position: None - PnL: 0.00
+2025-06-11 13:27:18,024 - INFO - GBP_USD - Signal: HOLD
+2025-06-11 13:27:18,026 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:27:18,106 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD
+2025-06-11 13:27:18,190 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:27:18,190 - INFO - GBP_USD - Position: None - PnL: 0.00
+2025-06-11 13:27:18,326 - INFO - USD_JPY - Signal: HOLD
+2025-06-11 13:27:18,326 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:27:18,405 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY
+2025-06-11 13:27:18,498 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:27:18,499 - INFO - USD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:27:18,655 - INFO - AUD_USD - Signal: HOLD
+2025-06-11 13:27:18,655 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:27:18,750 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD
+2025-06-11 13:27:18,848 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:27:18,848 - INFO - AUD_USD - Position: None - PnL: 0.00
+2025-06-11 13:27:19,121 - INFO - USD_CAD - Signal: HOLD
+2025-06-11 13:27:19,122 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:27:19,221 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD
+2025-06-11 13:27:19,335 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:27:19,335 - INFO - USD_CAD - Position: None - PnL: 0.00
+2025-06-11 13:27:19,470 - INFO - CAD_JPY - Signal: HOLD
+2025-06-11 13:27:19,471 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:27:19,560 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/CAD_JPY
+2025-06-11 13:27:19,658 - INFO - CAD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:28:19,843 - INFO - EUR_USD - Signal: HOLD
+2025-06-11 13:28:19,843 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:28:19,936 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/EUR_USD
+2025-06-11 13:28:20,013 - INFO - EUR_USD - Position: None - PnL: 0.00
+2025-06-11 13:28:20,144 - INFO - GBP_USD - Signal: HOLD
+2025-06-11 13:28:20,144 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:28:20,221 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD
+2025-06-11 13:28:20,297 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:28:20,297 - INFO - GBP_USD - Position: None - PnL: 0.00
+2025-06-11 13:28:20,430 - INFO - USD_JPY - Signal: HOLD
+2025-06-11 13:28:20,430 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:28:20,516 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY
+2025-06-11 13:28:20,599 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:28:20,599 - INFO - USD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:28:20,808 - INFO - AUD_USD - Signal: HOLD
+2025-06-11 13:28:20,808 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:28:20,901 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD
+2025-06-11 13:28:20,979 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:28:20,979 - INFO - AUD_USD - Position: None - PnL: 0.00
+2025-06-11 13:28:21,100 - INFO - USD_CAD - Signal: HOLD
+2025-06-11 13:28:21,100 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:28:21,184 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD
+2025-06-11 13:28:21,261 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:28:21,262 - INFO - USD_CAD - Position: None - PnL: 0.00
+2025-06-11 13:28:21,388 - INFO - CAD_JPY - Signal: HOLD
+2025-06-11 13:28:21,388 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:28:21,465 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/CAD_JPY
+2025-06-11 13:28:21,540 - INFO - CAD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:29:21,758 - INFO - EUR_USD - Signal: HOLD
+2025-06-11 13:29:21,758 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:29:21,863 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/EUR_USD
+2025-06-11 13:29:21,956 - INFO - EUR_USD - Position: None - PnL: 0.00
+2025-06-11 13:29:22,090 - INFO - GBP_USD - Signal: HOLD
+2025-06-11 13:29:22,090 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:29:22,184 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD
+2025-06-11 13:29:22,273 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:29:22,273 - INFO - GBP_USD - Position: None - PnL: 0.00
+2025-06-11 13:29:22,442 - INFO - USD_JPY - Signal: HOLD
+2025-06-11 13:29:22,442 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:29:22,532 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY
+2025-06-11 13:29:22,613 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:29:22,613 - INFO - USD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:29:22,754 - INFO - AUD_USD - Signal: HOLD
+2025-06-11 13:29:22,754 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:29:22,846 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD
+2025-06-11 13:29:22,927 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:29:22,928 - INFO - AUD_USD - Position: None - PnL: 0.00
+2025-06-11 13:29:23,179 - INFO - USD_CAD - Signal: HOLD
+2025-06-11 13:29:23,179 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:29:23,258 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD
+2025-06-11 13:29:23,343 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:29:23,344 - INFO - USD_CAD - Position: None - PnL: 0.00
+2025-06-11 13:29:23,464 - INFO - CAD_JPY - Signal: HOLD
+2025-06-11 13:29:23,465 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:29:23,557 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/CAD_JPY
+2025-06-11 13:29:23,668 - INFO - CAD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:30:23,815 - INFO - EUR_USD - Signal: HOLD
+2025-06-11 13:30:23,815 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:30:23,967 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/EUR_USD
+2025-06-11 13:30:24,046 - INFO - EUR_USD - Position: None - PnL: 0.00
+2025-06-11 13:30:24,201 - INFO - GBP_USD - Signal: HOLD
+2025-06-11 13:30:24,202 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:30:24,293 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD
+2025-06-11 13:30:24,392 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:30:24,392 - INFO - GBP_USD - Position: None - PnL: 0.00
+2025-06-11 13:30:24,552 - INFO - USD_JPY - Signal: HOLD
+2025-06-11 13:30:24,552 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:30:24,633 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY
+2025-06-11 13:30:24,720 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:30:24,721 - INFO - USD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:30:24,969 - INFO - AUD_USD - Signal: HOLD
+2025-06-11 13:30:24,969 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:30:25,054 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD
+2025-06-11 13:30:25,152 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:30:25,152 - INFO - AUD_USD - Position: None - PnL: 0.00
+2025-06-11 13:30:25,269 - INFO - USD_CAD - Signal: HOLD
+2025-06-11 13:30:25,269 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:30:25,364 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD
+2025-06-11 13:30:25,478 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:30:25,478 - INFO - USD_CAD - Position: None - PnL: 0.00
+2025-06-11 13:30:25,624 - INFO - CAD_JPY - Signal: HOLD
+2025-06-11 13:30:25,624 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:30:25,724 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/CAD_JPY
+2025-06-11 13:30:25,809 - INFO - CAD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:31:25,963 - INFO - EUR_USD - Signal: HOLD
+2025-06-11 13:31:25,964 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:31:26,071 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/EUR_USD
+2025-06-11 13:31:26,151 - INFO - EUR_USD - Position: None - PnL: 0.00
+2025-06-11 13:31:26,341 - INFO - GBP_USD - Signal: HOLD
+2025-06-11 13:31:26,341 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:31:26,436 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD
+2025-06-11 13:31:26,528 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:31:26,532 - INFO - GBP_USD - Position: None - PnL: 0.00
+2025-06-11 13:31:26,684 - INFO - USD_JPY - Signal: HOLD
+2025-06-11 13:31:26,684 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:31:26,766 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY
+2025-06-11 13:31:26,845 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:31:26,845 - INFO - USD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:31:27,060 - INFO - AUD_USD - Signal: HOLD
+2025-06-11 13:31:27,060 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:31:27,139 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD
+2025-06-11 13:31:27,226 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:31:27,226 - INFO - AUD_USD - Position: None - PnL: 0.00
+2025-06-11 13:31:27,456 - INFO - USD_CAD - Signal: HOLD
+2025-06-11 13:31:27,456 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:31:27,551 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD
+2025-06-11 13:31:27,629 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:31:27,630 - INFO - USD_CAD - Position: None - PnL: 0.00
+2025-06-11 13:31:27,803 - INFO - CAD_JPY - Signal: HOLD
+2025-06-11 13:31:27,804 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:31:27,882 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/CAD_JPY
+2025-06-11 13:31:27,964 - INFO - CAD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:32:28,106 - INFO - EUR_USD - Signal: HOLD
+2025-06-11 13:32:28,106 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:32:28,205 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/EUR_USD
+2025-06-11 13:32:28,293 - INFO - EUR_USD - Position: None - PnL: 0.00
+2025-06-11 13:32:28,464 - INFO - GBP_USD - Signal: HOLD
+2025-06-11 13:32:28,465 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:32:28,546 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD
+2025-06-11 13:32:28,640 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:32:28,640 - INFO - GBP_USD - Position: None - PnL: 0.00
+2025-06-11 13:32:28,797 - INFO - USD_JPY - Signal: HOLD
+2025-06-11 13:32:28,798 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:32:28,897 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY
+2025-06-11 13:32:28,989 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:32:28,989 - INFO - USD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:32:29,133 - INFO - AUD_USD - Signal: HOLD
+2025-06-11 13:32:29,134 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:32:29,212 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD
+2025-06-11 13:32:29,296 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:32:29,296 - INFO - AUD_USD - Position: None - PnL: 0.00
+2025-06-11 13:32:29,450 - INFO - USD_CAD - Signal: HOLD
+2025-06-11 13:32:29,450 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:32:29,533 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD
+2025-06-11 13:32:29,619 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:32:29,619 - INFO - USD_CAD - Position: None - PnL: 0.00
+2025-06-11 13:32:29,747 - INFO - CAD_JPY - Signal: HOLD
+2025-06-11 13:32:29,747 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:32:29,823 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/CAD_JPY
+2025-06-11 13:32:29,900 - INFO - CAD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:33:30,071 - INFO - EUR_USD - Signal: HOLD
+2025-06-11 13:33:30,071 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:33:30,170 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/EUR_USD
+2025-06-11 13:33:30,259 - INFO - EUR_USD - Position: None - PnL: 0.00
+2025-06-11 13:33:30,405 - INFO - GBP_USD - Signal: HOLD
+2025-06-11 13:33:30,406 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:33:30,499 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD
+2025-06-11 13:33:30,586 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:33:30,586 - INFO - GBP_USD - Position: None - PnL: 0.00
+2025-06-11 13:33:30,743 - INFO - USD_JPY - Signal: HOLD
+2025-06-11 13:33:30,744 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:33:30,821 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY
+2025-06-11 13:33:30,899 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:33:30,899 - INFO - USD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:33:31,056 - INFO - AUD_USD - Signal: HOLD
+2025-06-11 13:33:31,056 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:33:31,157 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD
+2025-06-11 13:33:31,236 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:33:31,236 - INFO - AUD_USD - Position: None - PnL: 0.00
+2025-06-11 13:33:31,440 - INFO - USD_CAD - Signal: HOLD
+2025-06-11 13:33:31,440 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:33:31,523 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD
+2025-06-11 13:33:31,598 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:33:31,598 - INFO - USD_CAD - Position: None - PnL: 0.00
+2025-06-11 13:33:31,781 - INFO - CAD_JPY - Signal: HOLD
+2025-06-11 13:33:31,781 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:33:31,882 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/CAD_JPY
+2025-06-11 13:33:31,985 - INFO - CAD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:34:32,125 - INFO - EUR_USD - Signal: HOLD
+2025-06-11 13:34:32,126 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:34:32,225 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/EUR_USD
+2025-06-11 13:34:32,302 - INFO - EUR_USD - Position: None - PnL: 0.00
+2025-06-11 13:34:32,427 - INFO - GBP_USD - Signal: HOLD
+2025-06-11 13:34:32,427 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:34:32,518 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD
+2025-06-11 13:34:32,601 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:34:32,601 - INFO - GBP_USD - Position: None - PnL: 0.00
+2025-06-11 13:34:32,721 - INFO - USD_JPY - Signal: HOLD
+2025-06-11 13:34:32,721 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:34:32,808 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY
+2025-06-11 13:34:32,906 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:34:32,906 - INFO - USD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:34:33,155 - INFO - AUD_USD - Signal: HOLD
+2025-06-11 13:34:33,155 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:34:33,236 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD
+2025-06-11 13:34:33,320 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:34:33,320 - INFO - AUD_USD - Position: None - PnL: 0.00
+2025-06-11 13:34:33,446 - INFO - USD_CAD - Signal: HOLD
+2025-06-11 13:34:33,446 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:34:33,529 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD
+2025-06-11 13:34:33,613 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:34:33,619 - INFO - USD_CAD - Position: None - PnL: 0.00
+2025-06-11 13:34:33,782 - INFO - CAD_JPY - Signal: HOLD
+2025-06-11 13:34:33,782 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:34:33,878 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/CAD_JPY
+2025-06-11 13:34:33,972 - INFO - CAD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:35:34,164 - INFO - EUR_USD - Signal: HOLD
+2025-06-11 13:35:34,164 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:35:34,261 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/EUR_USD
+2025-06-11 13:35:34,343 - INFO - EUR_USD - Position: None - PnL: 0.00
+2025-06-11 13:35:34,492 - INFO - GBP_USD - Signal: HOLD
+2025-06-11 13:35:34,493 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:35:34,580 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD
+2025-06-11 13:35:34,663 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:35:34,665 - INFO - GBP_USD - Position: None - PnL: 0.00
+2025-06-11 13:35:34,805 - INFO - USD_JPY - Signal: HOLD
+2025-06-11 13:35:34,805 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:35:34,911 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY
+2025-06-11 13:35:34,995 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:35:34,995 - INFO - USD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:35:35,182 - INFO - AUD_USD - Signal: HOLD
+2025-06-11 13:35:35,183 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:35:35,270 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD
+2025-06-11 13:35:35,367 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:35:35,367 - INFO - AUD_USD - Position: None - PnL: 0.00
+2025-06-11 13:35:35,492 - INFO - USD_CAD - Signal: HOLD
+2025-06-11 13:35:35,492 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:35:35,580 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD
+2025-06-11 13:35:35,666 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:35:35,666 - INFO - USD_CAD - Position: None - PnL: 0.00
+2025-06-11 13:35:35,842 - INFO - CAD_JPY - Signal: HOLD
+2025-06-11 13:35:35,842 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:35:35,921 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/CAD_JPY
+2025-06-11 13:35:36,007 - INFO - CAD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:36:36,195 - INFO - EUR_USD - Signal: HOLD
+2025-06-11 13:36:36,195 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:36:36,305 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/EUR_USD
+2025-06-11 13:36:36,395 - INFO - EUR_USD - Position: None - PnL: 0.00
+2025-06-11 13:36:36,548 - INFO - GBP_USD - Signal: HOLD
+2025-06-11 13:36:36,549 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:36:36,633 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD
+2025-06-11 13:36:36,718 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:36:36,718 - INFO - GBP_USD - Position: None - PnL: 0.00
+2025-06-11 13:36:36,848 - INFO - USD_JPY - Signal: HOLD
+2025-06-11 13:36:36,849 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:36:36,952 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY
+2025-06-11 13:36:37,052 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:36:37,052 - INFO - USD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:36:37,184 - INFO - AUD_USD - Signal: HOLD
+2025-06-11 13:36:37,184 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:36:37,263 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD
+2025-06-11 13:36:37,353 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:36:37,353 - INFO - AUD_USD - Position: None - PnL: 0.00
+2025-06-11 13:36:37,506 - INFO - USD_CAD - Signal: HOLD
+2025-06-11 13:36:37,506 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:36:37,592 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD
+2025-06-11 13:36:37,704 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:36:37,704 - INFO - USD_CAD - Position: None - PnL: 0.00
+2025-06-11 13:36:37,844 - INFO - CAD_JPY - Signal: HOLD
+2025-06-11 13:36:37,845 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:36:37,934 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/CAD_JPY
+2025-06-11 13:36:38,020 - INFO - CAD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:37:38,204 - INFO - EUR_USD - Signal: HOLD
+2025-06-11 13:37:38,204 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:37:38,316 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/EUR_USD
+2025-06-11 13:37:38,395 - INFO - EUR_USD - Position: None - PnL: 0.00
+2025-06-11 13:37:38,558 - INFO - GBP_USD - Signal: HOLD
+2025-06-11 13:37:38,558 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:37:38,645 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD
+2025-06-11 13:37:38,721 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:37:38,721 - INFO - GBP_USD - Position: None - PnL: 0.00
+2025-06-11 13:37:38,847 - INFO - USD_JPY - Signal: HOLD
+2025-06-11 13:37:38,847 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:37:38,926 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY
+2025-06-11 13:37:39,013 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:37:39,013 - INFO - USD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:37:39,162 - INFO - AUD_USD - Signal: HOLD
+2025-06-11 13:37:39,162 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:37:39,248 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD
+2025-06-11 13:37:39,328 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:37:39,328 - INFO - AUD_USD - Position: None - PnL: 0.00
+2025-06-11 13:37:39,462 - INFO - USD_CAD - Signal: HOLD
+2025-06-11 13:37:39,462 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:37:39,544 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD
+2025-06-11 13:37:39,632 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:37:39,632 - INFO - USD_CAD - Position: None - PnL: 0.00
+2025-06-11 13:37:39,782 - INFO - CAD_JPY - Signal: HOLD
+2025-06-11 13:37:39,782 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:37:39,870 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/CAD_JPY
+2025-06-11 13:37:39,951 - INFO - CAD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:38:40,113 - INFO - EUR_USD - Signal: HOLD
+2025-06-11 13:38:40,113 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:38:40,218 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/EUR_USD
+2025-06-11 13:38:40,307 - INFO - EUR_USD - Position: None - PnL: 0.00
+2025-06-11 13:38:40,435 - INFO - GBP_USD - Signal: HOLD
+2025-06-11 13:38:40,435 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:38:40,518 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD
+2025-06-11 13:38:40,612 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:38:40,612 - INFO - GBP_USD - Position: None - PnL: 0.00
+2025-06-11 13:38:40,778 - INFO - USD_JPY - Signal: HOLD
+2025-06-11 13:38:40,778 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:38:40,858 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY
+2025-06-11 13:38:40,935 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:38:40,935 - INFO - USD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:38:41,058 - INFO - AUD_USD - Signal: HOLD
+2025-06-11 13:38:41,059 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:38:41,136 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD
+2025-06-11 13:38:41,224 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:38:41,224 - INFO - AUD_USD - Position: None - PnL: 0.00
+2025-06-11 13:38:41,346 - INFO - USD_CAD - Signal: HOLD
+2025-06-11 13:38:41,346 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:38:41,429 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD
+2025-06-11 13:38:41,518 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:38:41,518 - INFO - USD_CAD - Position: None - PnL: 0.00
+2025-06-11 13:38:41,634 - INFO - CAD_JPY - Signal: HOLD
+2025-06-11 13:38:41,634 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:38:41,743 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/CAD_JPY
+2025-06-11 13:38:41,822 - INFO - CAD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:39:41,977 - INFO - EUR_USD - Signal: HOLD
+2025-06-11 13:39:41,978 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:39:42,092 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/EUR_USD
+2025-06-11 13:39:42,173 - INFO - EUR_USD - Position: None - PnL: 0.00
+2025-06-11 13:39:42,334 - INFO - GBP_USD - Signal: HOLD
+2025-06-11 13:39:42,334 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:39:42,416 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD
+2025-06-11 13:39:42,509 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:39:42,509 - INFO - GBP_USD - Position: None - PnL: 0.00
+2025-06-11 13:39:42,669 - INFO - USD_JPY - Signal: HOLD
+2025-06-11 13:39:42,669 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:39:42,745 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY
+2025-06-11 13:39:42,828 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:39:42,828 - INFO - USD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:39:42,976 - INFO - AUD_USD - Signal: HOLD
+2025-06-11 13:39:42,976 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:39:43,067 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD
+2025-06-11 13:39:43,154 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:39:43,155 - INFO - AUD_USD - Position: None - PnL: 0.00
+2025-06-11 13:39:43,355 - INFO - USD_CAD - Signal: HOLD
+2025-06-11 13:39:43,355 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:39:43,438 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD
+2025-06-11 13:39:43,514 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:39:43,514 - INFO - USD_CAD - Position: None - PnL: 0.00
+2025-06-11 13:39:43,643 - INFO - CAD_JPY - Signal: HOLD
+2025-06-11 13:39:43,643 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:39:43,723 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/CAD_JPY
+2025-06-11 13:39:43,813 - INFO - CAD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:40:43,951 - INFO - EUR_USD - Signal: HOLD
+2025-06-11 13:40:43,951 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:40:44,046 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/EUR_USD
+2025-06-11 13:40:44,130 - INFO - EUR_USD - Position: None - PnL: 0.00
+2025-06-11 13:40:44,268 - INFO - GBP_USD - Signal: HOLD
+2025-06-11 13:40:44,268 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:40:44,368 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD
+2025-06-11 13:40:44,449 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:40:44,449 - INFO - GBP_USD - Position: None - PnL: 0.00
+2025-06-11 13:40:44,604 - INFO - USD_JPY - Signal: HOLD
+2025-06-11 13:40:44,604 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:40:44,686 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY
+2025-06-11 13:40:44,767 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:40:44,767 - INFO - USD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:40:44,899 - INFO - AUD_USD - Signal: HOLD
+2025-06-11 13:40:44,899 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:40:44,990 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD
+2025-06-11 13:40:45,071 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:40:45,071 - INFO - AUD_USD - Position: None - PnL: 0.00
+2025-06-11 13:40:45,273 - INFO - USD_CAD - Signal: HOLD
+2025-06-11 13:40:45,273 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:40:45,364 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD
+2025-06-11 13:40:45,450 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:40:45,450 - INFO - USD_CAD - Position: None - PnL: 0.00
+2025-06-11 13:40:45,589 - INFO - CAD_JPY - Signal: HOLD
+2025-06-11 13:40:45,589 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:40:45,681 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/CAD_JPY
+2025-06-11 13:40:45,769 - INFO - CAD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:41:45,915 - INFO - EUR_USD - Signal: HOLD
+2025-06-11 13:41:45,917 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:41:46,072 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/EUR_USD
+2025-06-11 13:41:46,158 - INFO - EUR_USD - Position: None - PnL: 0.00
+2025-06-11 13:41:46,287 - INFO - GBP_USD - Signal: HOLD
+2025-06-11 13:41:46,287 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:41:46,398 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD
+2025-06-11 13:41:46,500 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:41:46,500 - INFO - GBP_USD - Position: None - PnL: 0.00
+2025-06-11 13:41:46,625 - INFO - USD_JPY - Signal: HOLD
+2025-06-11 13:41:46,625 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:41:46,736 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY
+2025-06-11 13:41:46,828 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:41:46,828 - INFO - USD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:41:46,958 - INFO - AUD_USD - Signal: HOLD
+2025-06-11 13:41:46,958 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:41:47,047 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD
+2025-06-11 13:41:47,127 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:41:47,127 - INFO - AUD_USD - Position: None - PnL: 0.00
+2025-06-11 13:41:47,319 - INFO - USD_CAD - Signal: HOLD
+2025-06-11 13:41:47,320 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:41:47,399 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD
+2025-06-11 13:41:47,476 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:41:47,476 - INFO - USD_CAD - Position: None - PnL: 0.00
+2025-06-11 13:41:47,599 - INFO - CAD_JPY - Signal: HOLD
+2025-06-11 13:41:47,599 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:41:47,699 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/CAD_JPY
+2025-06-11 13:41:47,789 - INFO - CAD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:42:47,963 - INFO - EUR_USD - Signal: HOLD
+2025-06-11 13:42:47,963 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:42:48,073 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/EUR_USD
+2025-06-11 13:42:48,165 - INFO - EUR_USD - Position: None - PnL: 0.00
+2025-06-11 13:42:48,303 - INFO - GBP_USD - Signal: HOLD
+2025-06-11 13:42:48,303 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:42:48,386 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD
+2025-06-11 13:42:48,466 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:42:48,466 - INFO - GBP_USD - Position: None - PnL: 0.00
+2025-06-11 13:42:48,581 - INFO - USD_JPY - Signal: HOLD
+2025-06-11 13:42:48,581 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:42:48,672 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY
+2025-06-11 13:42:48,750 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:42:48,751 - INFO - USD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:42:49,074 - INFO - AUD_USD - Signal: HOLD
+2025-06-11 13:42:49,074 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:42:49,163 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD
+2025-06-11 13:42:49,248 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:42:49,248 - INFO - AUD_USD - Position: None - PnL: 0.00
+2025-06-11 13:42:49,394 - INFO - USD_CAD - Signal: HOLD
+2025-06-11 13:42:49,394 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:42:49,490 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD
+2025-06-11 13:42:49,567 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:42:49,567 - INFO - USD_CAD - Position: None - PnL: 0.00
+2025-06-11 13:42:49,767 - INFO - CAD_JPY - Signal: HOLD
+2025-06-11 13:42:49,767 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:42:49,853 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/CAD_JPY
+2025-06-11 13:42:49,933 - INFO - CAD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:43:50,073 - INFO - EUR_USD - Signal: HOLD
+2025-06-11 13:43:50,073 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:43:50,223 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/EUR_USD
+2025-06-11 13:43:50,310 - INFO - EUR_USD - Position: None - PnL: 0.00
+2025-06-11 13:43:50,505 - INFO - GBP_USD - Signal: HOLD
+2025-06-11 13:43:50,505 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:43:50,587 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD
+2025-06-11 13:43:50,673 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:43:50,673 - INFO - GBP_USD - Position: None - PnL: 0.00
+2025-06-11 13:43:50,791 - INFO - USD_JPY - Signal: HOLD
+2025-06-11 13:43:50,791 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:43:50,870 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY
+2025-06-11 13:43:50,954 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:43:50,954 - INFO - USD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:43:51,097 - INFO - AUD_USD - Signal: HOLD
+2025-06-11 13:43:51,097 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:43:51,190 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD
+2025-06-11 13:43:51,273 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:43:51,273 - INFO - AUD_USD - Position: None - PnL: 0.00
+2025-06-11 13:43:51,399 - INFO - USD_CAD - Signal: HOLD
+2025-06-11 13:43:51,399 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:43:51,482 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD
+2025-06-11 13:43:51,572 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:43:51,573 - INFO - USD_CAD - Position: None - PnL: 0.00
+2025-06-11 13:43:51,716 - INFO - CAD_JPY - Signal: HOLD
+2025-06-11 13:43:51,717 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:43:51,804 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/CAD_JPY
+2025-06-11 13:43:51,889 - INFO - CAD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:44:52,069 - INFO - EUR_USD - Signal: HOLD
+2025-06-11 13:44:52,069 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:44:52,166 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/EUR_USD
+2025-06-11 13:44:52,266 - INFO - EUR_USD - Position: None - PnL: 0.00
+2025-06-11 13:44:52,417 - INFO - GBP_USD - Signal: HOLD
+2025-06-11 13:44:52,417 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:44:52,503 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD
+2025-06-11 13:44:52,582 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:44:52,584 - INFO - GBP_USD - Position: None - PnL: 0.00
+2025-06-11 13:44:52,775 - INFO - USD_JPY - Signal: HOLD
+2025-06-11 13:44:52,775 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:44:52,852 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY
+2025-06-11 13:44:52,950 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:44:52,950 - INFO - USD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:44:53,156 - INFO - AUD_USD - Signal: HOLD
+2025-06-11 13:44:53,156 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:44:53,242 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD
+2025-06-11 13:44:53,333 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:44:53,333 - INFO - AUD_USD - Position: None - PnL: 0.00
+2025-06-11 13:44:53,458 - INFO - USD_CAD - Signal: HOLD
+2025-06-11 13:44:53,459 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:44:53,538 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD
+2025-06-11 13:44:53,626 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:44:53,626 - INFO - USD_CAD - Position: None - PnL: 0.00
+2025-06-11 13:44:53,770 - INFO - CAD_JPY - Signal: HOLD
+2025-06-11 13:44:53,770 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:44:53,853 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/CAD_JPY
+2025-06-11 13:44:53,932 - INFO - CAD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:45:54,124 - INFO - EUR_USD - Signal: HOLD
+2025-06-11 13:45:54,124 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:45:54,219 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/EUR_USD
+2025-06-11 13:45:54,298 - INFO - EUR_USD - Position: None - PnL: 0.00
+2025-06-11 13:45:54,460 - INFO - GBP_USD - Signal: HOLD
+2025-06-11 13:45:54,460 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:45:54,561 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD
+2025-06-11 13:45:54,661 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:45:54,661 - INFO - GBP_USD - Position: None - PnL: 0.00
+2025-06-11 13:45:54,811 - INFO - USD_JPY - Signal: HOLD
+2025-06-11 13:45:54,811 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:45:54,890 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY
+2025-06-11 13:45:54,975 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:45:54,975 - INFO - USD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:45:55,100 - INFO - AUD_USD - Signal: HOLD
+2025-06-11 13:45:55,101 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:45:55,197 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD
+2025-06-11 13:45:55,275 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:45:55,275 - INFO - AUD_USD - Position: None - PnL: 0.00
+2025-06-11 13:45:55,397 - INFO - USD_CAD - Signal: HOLD
+2025-06-11 13:45:55,397 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:45:55,476 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD
+2025-06-11 13:45:55,566 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:45:55,566 - INFO - USD_CAD - Position: None - PnL: 0.00
+2025-06-11 13:45:55,712 - INFO - CAD_JPY - Signal: HOLD
+2025-06-11 13:45:55,712 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:45:55,798 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/CAD_JPY
+2025-06-11 13:45:55,886 - INFO - CAD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:46:56,060 - INFO - EUR_USD - Signal: HOLD
+2025-06-11 13:46:56,060 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:46:56,228 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/EUR_USD
+2025-06-11 13:46:56,319 - INFO - EUR_USD - Position: None - PnL: 0.00
+2025-06-11 13:46:56,441 - INFO - GBP_USD - Signal: HOLD
+2025-06-11 13:46:56,442 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:46:56,552 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD
+2025-06-11 13:46:56,639 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:46:56,640 - INFO - GBP_USD - Position: None - PnL: 0.00
+2025-06-11 13:46:56,769 - INFO - USD_JPY - Signal: HOLD
+2025-06-11 13:46:56,769 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:46:56,850 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY
+2025-06-11 13:46:56,927 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:46:56,927 - INFO - USD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:46:57,131 - INFO - AUD_USD - Signal: HOLD
+2025-06-11 13:46:57,131 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:46:57,208 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD
+2025-06-11 13:46:57,293 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:46:57,293 - INFO - AUD_USD - Position: None - PnL: 0.00
+2025-06-11 13:46:57,421 - INFO - USD_CAD - Signal: HOLD
+2025-06-11 13:46:57,421 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:46:57,515 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD
+2025-06-11 13:46:57,609 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD failed [404,{"lastTransactionID":"335","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:46:57,610 - INFO - USD_CAD - Position: None - PnL: 0.00
+2025-06-11 13:46:57,737 - INFO - CAD_JPY - Signal: HOLD
+2025-06-11 13:46:57,738 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:46:57,817 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/CAD_JPY
+2025-06-11 13:46:57,911 - INFO - CAD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:47:58,070 - INFO - EUR_USD - Signal: SELL
+2025-06-11 13:47:58,070 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:47:58,166 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/EUR_USD
+2025-06-11 13:47:58,254 - INFO - EUR_USD - Position: None - PnL: 0.00
+2025-06-11 13:47:58,255 - INFO - EUR_USD - Placing SELL order...
+2025-06-11 13:47:58,255 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/orders
+2025-06-11 13:47:58,342 - INFO - EUR_USD - SELL order placed successfully.
+2025-06-11 13:47:58,490 - INFO - GBP_USD - Signal: HOLD
+2025-06-11 13:47:58,491 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:47:58,574 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD
+2025-06-11 13:47:58,651 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD failed [404,{"lastTransactionID":"337","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:47:58,651 - INFO - GBP_USD - Position: None - PnL: 0.00
+2025-06-11 13:47:58,831 - INFO - USD_JPY - Signal: HOLD
+2025-06-11 13:47:58,831 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:47:58,914 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY
+2025-06-11 13:47:58,996 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY failed [404,{"lastTransactionID":"337","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:47:58,996 - INFO - USD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:47:59,134 - INFO - AUD_USD - Signal: HOLD
+2025-06-11 13:47:59,134 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:47:59,221 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD
+2025-06-11 13:47:59,300 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD failed [404,{"lastTransactionID":"337","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:47:59,300 - INFO - AUD_USD - Position: None - PnL: 0.00
+2025-06-11 13:47:59,443 - INFO - USD_CAD - Signal: HOLD
+2025-06-11 13:47:59,443 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:47:59,533 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD
+2025-06-11 13:47:59,619 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD failed [404,{"lastTransactionID":"337","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:47:59,619 - INFO - USD_CAD - Position: None - PnL: 0.00
+2025-06-11 13:47:59,740 - INFO - CAD_JPY - Signal: HOLD
+2025-06-11 13:47:59,740 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:47:59,820 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/CAD_JPY
+2025-06-11 13:47:59,930 - INFO - CAD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:49:00,094 - INFO - EUR_USD - Signal: HOLD
+2025-06-11 13:49:00,094 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:49:00,245 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/EUR_USD
+2025-06-11 13:49:00,333 - INFO - EUR_USD - Position: {'side': 'SELL', 'units': 1000} - PnL: -0.19
+2025-06-11 13:49:00,621 - INFO - GBP_USD - Signal: HOLD
+2025-06-11 13:49:00,621 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:49:00,706 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD
+2025-06-11 13:49:00,808 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD failed [404,{"lastTransactionID":"337","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:49:00,808 - INFO - GBP_USD - Position: None - PnL: 0.00
+2025-06-11 13:49:00,952 - INFO - USD_JPY - Signal: HOLD
+2025-06-11 13:49:00,952 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:49:01,062 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY
+2025-06-11 13:49:01,150 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY failed [404,{"lastTransactionID":"337","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:49:01,151 - INFO - USD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:49:01,338 - INFO - AUD_USD - Signal: HOLD
+2025-06-11 13:49:01,338 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:49:01,486 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD
+2025-06-11 13:49:01,626 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD failed [404,{"lastTransactionID":"337","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:49:01,626 - INFO - AUD_USD - Position: None - PnL: 0.00
+2025-06-11 13:49:01,806 - INFO - USD_CAD - Signal: HOLD
+2025-06-11 13:49:01,806 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:49:01,907 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD
+2025-06-11 13:49:02,007 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD failed [404,{"lastTransactionID":"337","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:49:02,007 - INFO - USD_CAD - Position: None - PnL: 0.00
+2025-06-11 13:49:02,213 - INFO - CAD_JPY - Signal: HOLD
+2025-06-11 13:49:02,213 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:49:02,301 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/CAD_JPY
+2025-06-11 13:49:02,408 - INFO - CAD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:50:02,736 - INFO - EUR_USD - Signal: HOLD
+2025-06-11 13:50:02,736 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:50:02,842 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/EUR_USD
+2025-06-11 13:50:02,942 - INFO - EUR_USD - Position: {'side': 'SELL', 'units': 1000} - PnL: -0.27
+2025-06-11 13:50:03,097 - INFO - GBP_USD - Signal: HOLD
+2025-06-11 13:50:03,098 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:50:03,183 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD
+2025-06-11 13:50:03,269 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD failed [404,{"lastTransactionID":"337","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:50:03,270 - INFO - GBP_USD - Position: None - PnL: 0.00
+2025-06-11 13:50:03,399 - INFO - USD_JPY - Signal: HOLD
+2025-06-11 13:50:03,399 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:50:03,485 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY
+2025-06-11 13:50:03,570 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY failed [404,{"lastTransactionID":"337","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:50:03,571 - INFO - USD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:50:03,710 - INFO - AUD_USD - Signal: HOLD
+2025-06-11 13:50:03,710 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:50:03,801 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD
+2025-06-11 13:50:03,900 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD failed [404,{"lastTransactionID":"337","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:50:03,901 - INFO - AUD_USD - Position: None - PnL: 0.00
+2025-06-11 13:50:04,162 - INFO - USD_CAD - Signal: HOLD
+2025-06-11 13:50:04,162 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:50:04,264 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD
+2025-06-11 13:50:04,346 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD failed [404,{"lastTransactionID":"337","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:50:04,346 - INFO - USD_CAD - Position: None - PnL: 0.00
+2025-06-11 13:50:04,486 - INFO - CAD_JPY - Signal: HOLD
+2025-06-11 13:50:04,486 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:50:04,584 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/CAD_JPY
+2025-06-11 13:50:04,727 - INFO - CAD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:51:04,880 - INFO - EUR_USD - Signal: HOLD
+2025-06-11 13:51:04,880 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:51:04,968 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/EUR_USD
+2025-06-11 13:51:05,047 - INFO - EUR_USD - Position: {'side': 'SELL', 'units': 1000} - PnL: -0.33
+2025-06-11 13:51:05,167 - INFO - GBP_USD - Signal: HOLD
+2025-06-11 13:51:05,168 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:51:05,254 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD
+2025-06-11 13:51:05,344 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD failed [404,{"lastTransactionID":"337","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:51:05,344 - INFO - GBP_USD - Position: None - PnL: 0.00
+2025-06-11 13:51:05,534 - INFO - USD_JPY - Signal: HOLD
+2025-06-11 13:51:05,536 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:51:05,632 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY
+2025-06-11 13:51:05,717 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY failed [404,{"lastTransactionID":"337","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:51:05,717 - INFO - USD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:51:05,924 - INFO - AUD_USD - Signal: HOLD
+2025-06-11 13:51:05,924 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:51:06,015 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD
+2025-06-11 13:51:06,110 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD failed [404,{"lastTransactionID":"337","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:51:06,110 - INFO - AUD_USD - Position: None - PnL: 0.00
+2025-06-11 13:51:06,232 - INFO - USD_CAD - Signal: HOLD
+2025-06-11 13:51:06,233 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:51:06,313 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD
+2025-06-11 13:51:06,398 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD failed [404,{"lastTransactionID":"337","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:51:06,398 - INFO - USD_CAD - Position: None - PnL: 0.00
+2025-06-11 13:51:06,531 - INFO - CAD_JPY - Signal: HOLD
+2025-06-11 13:51:06,532 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:51:06,647 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/CAD_JPY
+2025-06-11 13:51:06,734 - INFO - CAD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:52:06,904 - INFO - EUR_USD - Signal: HOLD
+2025-06-11 13:52:06,904 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:52:07,003 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/EUR_USD
+2025-06-11 13:52:07,087 - INFO - EUR_USD - Position: {'side': 'SELL', 'units': 1000} - PnL: -0.33
+2025-06-11 13:52:07,223 - INFO - GBP_USD - Signal: HOLD
+2025-06-11 13:52:07,223 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:52:07,312 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD
+2025-06-11 13:52:07,393 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD failed [404,{"lastTransactionID":"337","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:52:07,393 - INFO - GBP_USD - Position: None - PnL: 0.00
+2025-06-11 13:52:07,519 - INFO - USD_JPY - Signal: HOLD
+2025-06-11 13:52:07,519 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:52:07,648 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY
+2025-06-11 13:52:07,772 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY failed [404,{"lastTransactionID":"337","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:52:07,772 - INFO - USD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:52:07,921 - INFO - AUD_USD - Signal: HOLD
+2025-06-11 13:52:07,921 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:52:08,013 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD
+2025-06-11 13:52:08,100 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD failed [404,{"lastTransactionID":"337","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:52:08,100 - INFO - AUD_USD - Position: None - PnL: 0.00
+2025-06-11 13:52:08,241 - INFO - USD_CAD - Signal: HOLD
+2025-06-11 13:52:08,242 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:52:08,329 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD
+2025-06-11 13:52:08,414 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD failed [404,{"lastTransactionID":"337","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:52:08,415 - INFO - USD_CAD - Position: None - PnL: 0.00
+2025-06-11 13:52:08,533 - INFO - CAD_JPY - Signal: HOLD
+2025-06-11 13:52:08,533 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:52:08,616 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/CAD_JPY
+2025-06-11 13:52:08,700 - INFO - CAD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:53:08,822 - INFO - EUR_USD - Signal: HOLD
+2025-06-11 13:53:08,822 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:53:08,934 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/EUR_USD
+2025-06-11 13:53:09,019 - INFO - EUR_USD - Position: {'side': 'SELL', 'units': 1000} - PnL: -0.40
+2025-06-11 13:53:09,159 - INFO - GBP_USD - Signal: HOLD
+2025-06-11 13:53:09,159 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:53:09,251 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD
+2025-06-11 13:53:09,356 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD failed [404,{"lastTransactionID":"337","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:53:09,356 - INFO - GBP_USD - Position: None - PnL: 0.00
+2025-06-11 13:53:09,497 - INFO - USD_JPY - Signal: HOLD
+2025-06-11 13:53:09,498 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:53:09,603 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY
+2025-06-11 13:53:09,688 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY failed [404,{"lastTransactionID":"337","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:53:09,689 - INFO - USD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:53:09,854 - INFO - AUD_USD - Signal: HOLD
+2025-06-11 13:53:09,854 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:53:09,933 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD
+2025-06-11 13:53:10,022 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD failed [404,{"lastTransactionID":"337","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:53:10,022 - INFO - AUD_USD - Position: None - PnL: 0.00
+2025-06-11 13:53:10,168 - INFO - USD_CAD - Signal: HOLD
+2025-06-11 13:53:10,168 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:53:10,248 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD
+2025-06-11 13:53:10,355 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD failed [404,{"lastTransactionID":"337","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:53:10,355 - INFO - USD_CAD - Position: None - PnL: 0.00
+2025-06-11 13:53:10,492 - INFO - CAD_JPY - Signal: HOLD
+2025-06-11 13:53:10,492 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:53:10,571 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/CAD_JPY
+2025-06-11 13:53:10,657 - INFO - CAD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:54:10,841 - INFO - EUR_USD - Signal: HOLD
+2025-06-11 13:54:10,841 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:54:10,953 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/EUR_USD
+2025-06-11 13:54:11,033 - INFO - EUR_USD - Position: {'side': 'SELL', 'units': 1000} - PnL: -0.43
+2025-06-11 13:54:11,160 - INFO - GBP_USD - Signal: HOLD
+2025-06-11 13:54:11,160 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:54:11,239 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD
+2025-06-11 13:54:11,320 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/GBP_USD failed [404,{"lastTransactionID":"337","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:54:11,320 - INFO - GBP_USD - Position: None - PnL: 0.00
+2025-06-11 13:54:11,499 - INFO - USD_JPY - Signal: HOLD
+2025-06-11 13:54:11,499 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:54:11,584 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY
+2025-06-11 13:54:11,674 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_JPY failed [404,{"lastTransactionID":"337","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:54:11,675 - INFO - USD_JPY - Position: None - PnL: 0.00
+2025-06-11 13:54:11,814 - INFO - AUD_USD - Signal: HOLD
+2025-06-11 13:54:11,814 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:54:11,910 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD
+2025-06-11 13:54:12,006 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/AUD_USD failed [404,{"lastTransactionID":"337","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:54:12,006 - INFO - AUD_USD - Position: None - PnL: 0.00
+2025-06-11 13:54:12,139 - INFO - USD_CAD - Signal: HOLD
+2025-06-11 13:54:12,139 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:54:12,223 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD
+2025-06-11 13:54:12,313 - ERROR - request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/USD_CAD failed [404,{"lastTransactionID":"337","errorMessage":"No position exists for the specified instrument","errorCode":"NO_SUCH_POSITION"}]
+2025-06-11 13:54:12,314 - INFO - USD_CAD - Position: None - PnL: 0.00
+2025-06-11 13:54:12,465 - INFO - CAD_JPY - Signal: HOLD
+2025-06-11 13:54:12,465 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/openPositions
+2025-06-11 13:54:12,564 - INFO - performing request https://api-fxpractice.oanda.com/v3/accounts/101-002-28367236-001/positions/CAD_JPY
+2025-06-11 13:54:12,652 - INFO - CAD_JPY - Position: None - PnL: 0.00

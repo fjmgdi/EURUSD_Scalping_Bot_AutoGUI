@@ -1,0 +1,13 @@
+﻿services:
+  - type: web
+    name: forex-bot
+    runtime: python
+    pythonVersion: "3.9.13"
+    buildCommand: |
+      pip install --upgrade pip
+      pip install -r requirements.txt
+    startCommand: python ai_forex_trading_bot.py
+    envVars:
+      - key: PORT
+        value: 8080
+    healthCheckPath: /health
