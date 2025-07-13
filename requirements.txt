@@ -1,8 +1,10 @@
+﻿# Create the file with essential packages
 @"
-services:
-  - type: web
-    name: forex-bot
-    runtime: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: python ai_forex_trading_bot.py
-"@ | Out-File -FilePath render.yaml -Encoding utf8
+numpy==1.24.4
+pandas==2.0.3
+oandapyV20==0.7.2
+python-dotenv==1.0.0
+"@ | Out-File -FilePath requirements.txt -Encoding utf8
+
+# Verify it was created
+Get-Content requirements.txt
